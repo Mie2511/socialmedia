@@ -1,0 +1,23 @@
+.action-item {
+  margin-left: .5em;
+  cursor: pointer;
+}
+.mat-card-actions, .mat-card-subtitle, .mat-card-content {
+  font-size: 20px;
+}
+.mat-card{
+  background-color: black;
+  color: white;
+  margin: 10px 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.mat-card-subtitle{
+  color: white;
+}
+.liked {
+  color: rgb(255, 127, 127);
+}

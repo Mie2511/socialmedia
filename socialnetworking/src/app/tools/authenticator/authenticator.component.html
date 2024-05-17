@@ -1,0 +1,35 @@
+<div id="authenticator">
+  <mat-card id="authenticator-content">
+    <mat-card-header>
+      <mat-card-title>{{getStateText()}}</mat-card-title>
+    </mat-card-header>
+
+    <div *ngIf="isLoginState()" >
+      <input #loginEmail placeholder="Email"/>
+      <input #loginPassword placeholder="Mật khẩu đăng nhập" type="password">
+     <button (click)="onLogin(loginEmail, loginPassword)" mat-flat-button color="warn">Đăng Nhập</button>
+    </div>
+
+    <div *ngIf="isRegisterState()">
+      <input #registerEmail placeholder="Email">
+      <input #registerPassword placeholder="Mật khẩu" type="password">
+      <input #registerConfirmPassword placeholder="Xác nhận mật khẩu" type="password">
+      <button (click)="onRegisterClick(registerEmail, registerPassword, registerConfirmPassword)"mat-flat-button color="warn">Tạo tài khoản</button>
+    </div>
+
+    <div *ngIf="isForgotPasswordState()">
+      <input #resetEmail placeholder="Email">
+      <button (click)="onResetClick(resetEmail)" mat-flat-button color="warn">Nhận lại mật khẩu</button>
+   </div>
+
+    <mat-card-actions align="end">
+      <button mat-flat-button
+           (click)="onForgotPasswordClick()">Quên mật khẩu?</button>
+      <button mat-flat-button
+           (click)="onCreateAccountClick()">Tạo tài khoản?</button>
+      <button mat-flat-button
+           (click)="onLoginClick()">Đăng nhập</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>
