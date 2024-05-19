@@ -29,7 +29,7 @@ export class PostFeedComponent implements OnInit {
         path: ["Posts"],
         where:[
           new OrderBy("timestamp", "desc"),
-          new Limit(10)
+          new Limit(100)
         ],
         onComplete: (result) => {
           result.docs.forEach(
