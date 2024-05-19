@@ -21,7 +21,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
-import { ReplyComponent } from './tools/reply/reply.component'
+import { ReplyComponent } from './tools/reply/reply.component';
+import { NofiticationComponent } from './tools/nofitication/nofitication.component';
+import { PersonalComponent } from './pages/personal/personal.component'
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { ReplyComponent } from './tools/reply/reply.component'
     PostFeedComponent,
     CreatePostComponent,
     PostComponent,
-    ReplyComponent
+    ReplyComponent,
+    NofiticationComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,

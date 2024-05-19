@@ -8,6 +8,7 @@ export const environment = {
   storageBucket: "socialnetworking-90a13.appspot.com",
   messagingSenderId: "407750755202",
   appId: "1:407750755202:web:2171a8ad624756d80bc59b",
-  measurementId: "G-6MLM1EM015"
+  measurementId: "G-6MLM1EM015",
+  vapidKey: "BEbU_jCQvWXyj5X4e4ZKc5UMFa0nNS3KZ-GtvJ_OpjivQkXY1yeKRBzzQwBleXKG_J_WVRr0LV25ad"
   }
 };

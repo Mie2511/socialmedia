@@ -1,9 +1,9 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Create Post</mat-card-title>
+    <mat-card-title>Bài đăng</mat-card-title>
   </mat-card-header>
   <div>
-    <textarea #commentInput placeholder="Type Message..."></textarea>
+    <textarea #commentInput placeholder="Bạn muốn đăng gì?"></textarea>
   </div>
 
   <div *ngIf="selectedImageFile" id="post-preview">
@@ -19,7 +19,7 @@
       </label>
   </button>
 
-  <button (click)="onPostClick(commentInput)" mat-flat-button color="warn">Post</button>
+  <button (click)="onPostClick(commentInput)" mat-flat-button color="warn">Đăng</button>
 
   </mat-card-actions>
 </mat-card>
