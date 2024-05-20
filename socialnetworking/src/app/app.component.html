@@ -1,32 +1,4 @@
-<!-- <div id="nav-bar">
-  <div id="nav-bar-content">
 
-    <div id="nav-bar-left">
-      <div style="font-size: 1.5em;" class="nav-bar-items"><img src="assets/logo-white.png" ></div>
-    </div> -->
-
-    <!-- <div id="nav-bar-right">
-      <div *ngIf="!loggedIn()"(click)="onLoginClick()" class="nav-bar-items">Đăng nhập</div>
-      <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items" >Hello, {{getUserName()}}</div>
-      <div *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items" >Đăng xuất </div>
-    </div> -->
-
-    <!-- <div id="nav-bar-right">
-      <div *ngIf="!loggedIn()" (click)="onLoginClick()" class="nav-bar-items">Log in</div>
-      <div *ngIf="loggedIn() && userHasProfile" (click)="navigateToProfile()" class="nav-bar-items">
-        Hello, {{getUserName()}}
-      </div>
-      <div *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items">Đăng xuất</div>
-    </div> -->
-
-
-<!--
-  </div>
-</div>
-
-<router-outlet></router-outlet>
-
-<app-profile [show]="loggedIn() && !userHasProfile"></app-profile> -->
 <div id="nav-bar">
   <div id="nav-bar-content">
     <div id="nav-bar-left">
@@ -38,9 +10,9 @@
     </div>
 
     <div id="nav-bar-center" *ngIf="showNavigation" class="navigation">
-      <div class="back-arrow">←</div>
+      <div class="back-arrow"  (click)="goBack()" style="cursor: pointer;">←</div>
       <div class="profile-summary">
-        <div class="profile-name">Profile Name</div>
+        <div class="profile-name">{{ showNavigationName }}</div>
         <div class="fleet-count">20 Fleets</div>
       </div>
     </div>

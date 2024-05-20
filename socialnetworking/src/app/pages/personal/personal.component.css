@@ -68,8 +68,10 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 5px solid white;
+  border: 3px solid transparent;
+  background: linear-gradient(to right bottom, #ffffff, #000000) border-box;
   overflow: hidden;
+
 }
 
 .profile-picture img {

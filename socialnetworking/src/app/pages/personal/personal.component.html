@@ -14,6 +14,7 @@
 
 
 <div id="body">
+  <app-nofitication></app-nofitication>
   <div class="container">
     <img class="main-image" [src]="mainImageSrc || 'default-main-image-url.jpg'" alt="Main Image" (click)="onMainImageClick()">
     <input type="file" id="main-image-input" (change)="onMainImageChange($event)" style="display: none;">
@@ -29,17 +30,18 @@
       <div class="profile-page">
 
           <div class="profile-details">
-              <!-- <div class="action-buttons">
-                  <img src="./assets/group-63.svg" alt="Action Button">
-                  <img src="./assets/group-64.svg" alt="Action Button">
+               <div class="action-buttons">
                   <div class="folleeting-button">
                       <div class="folleeting-text">Folleeting</div>
                   </div>
-              </div> -->
+              </div>
               <div class="main-details">
                   <div class="profile-name">{{ profileName }}</div>
                   <div class="profile-handle">{{ profileHandle }}</div>
-                  <div class="bio">đang upd thêm chức năng</div>
+
+                  <ng-container *ngFor="let post of userPosts">
+                    <app-post [postData]="post"></app-post>
+                  </ng-container>
                   <!-- <div class="additional-info">
                       <span>City, Country</span>
                       <span>website.com</span>
