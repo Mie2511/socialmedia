@@ -1,20 +1,3 @@
-/*
-#post-button {
-  position: fixed;
-  bottom: 2em;
-  right: 2em;
-}
-#post-feed {
-  max-width: 40%;
-  margin-top: 5em;
-  margin-left: auto;
-  margin-right: auto;
-} */
-#post-button {
-  position: fixed;
-  bottom: 2em;
-  right: 2em;
-}
 
 #container {
   display: flex;
@@ -28,15 +11,55 @@
   margin-right: auto;
 }
 
-/* #post-feed-side-bar {
-  width: 20%;
+#post-button {
   position: fixed;
-  right: 0;
-  top: 5em;
-  color: white;
-
+  bottom: 2em;
+  right: 2em;
+  background-image: linear-gradient(to right bottom, #6a5af9, #f62682);
+  transition: width 0.5s, padding 0.5s, border-radius 0.5s;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 50%;
 }
-#post-feed-side-bar .mat-icon{
-  margin-top: 0.5cm;
-  margin-left: 2cm;
-} */
+
+#post-button:hover {
+  width: 145px;
+  height: 56px;
+  color: white;
+  background-image: linear-gradient(to right bottom, #f62682, #e5f626);
+  justify-content: flex-start;
+  border-radius: 28px;
+}
+
+#post-button:hover .button-icon {
+  animation: rotate-icon 1s ease-in-out;
+  margin-right: 2px; /* Space between icon and text */
+}
+
+.button-icon{
+  margin-left: 36%;
+  margin-right: 0px;
+}
+@keyframes rotate-icon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button-text {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#post-button:hover .button-text {
+  opacity: 1; /* Show text on hover */
+}
+
