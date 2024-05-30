@@ -1,0 +1,79 @@
+
+#container{
+  margin: 20px auto;
+  padding: 10px;
+  margin-top: 3cm;
+  width: 60%;
+}
+.profile {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.profile img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+
+.profile-info {
+  flex-grow: 1;
+  color: #ffffff;
+  font-weight: normal;
+}
+.profile-name {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+}
+.main-details{
+  display: flex;
+  align-items: center;
+}
+.follow-button {
+  margin-top: 5px;
+  margin-left: auto;
+}
+.follow-button button {
+  padding: 8px 16px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.follow-button button:hover {
+  background-color: #000000a0;
+  color: white;
+}
+.follow-button .friend-request-sent {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.follow-button .decline-button{
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+.follow-button .friends-button {
+  background-color: transparent;
+  background-image: linear-gradient(to top right, rgb(94, 255, 250), rgb(132, 0, 255));
+  color: white;
+}
+.notification {
+  background-color: transparent;
+  background-image: linear-gradient(to top right, rgb(170, 233, 231), rgb(197, 151, 240));
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+#container p{
+  font-size: 30px;
+  font-weight: bolder;
+  background: linear-gradient(to right, #b1b1b1 , #3a40e2 );
+  background-clip: text;
+  color: transparent;
+}

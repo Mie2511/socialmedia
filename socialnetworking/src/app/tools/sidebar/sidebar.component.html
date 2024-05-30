@@ -1,14 +1,4 @@
-<!-- <div id="side-bar">
-  <mat-card-actions>
-    <mat-icon class="action-item" color="white">group</mat-icon>
-    <span>Bạn bè</span>
-    <mat-icon class="action-item" color="warn">favorite_border</mat-icon>
-    <span></span>
-    <mat-icon class="action-item" color="white">save</mat-icon>
-  </mat-card-actions>
-</div> -->
 <div id="post-feed-side-bar" >
-
   <mat-card-actions>
     <p><mat-icon class="action-item" color="white">group</mat-icon>&nbsp;&nbsp;&nbsp;
     <span>Bạn bè</span></p>
@@ -27,14 +17,18 @@
 
     <hr style="margin-left: 2cm;">
     <div id="content" style="text-align: left; margin-left: 2.2cm;">
-      <p style="font-weight: bold;">Nhắn tin</p>
-      <p>Chuppachup</p>
-      <p>baesuzy___</p>
-      <p>Pearh</p>
-      <p>miecute</p>
-      <p>keikyoshu</p>
-      <p>cừu cừu cừu</p>
+      <p style="font-weight: bold;">Bạn bè</p>
+      <div *ngFor="let friend of friends" class="friend">
+        <div class="friend-avatar"  (click)="navigateToPersonalPage(friend)">
+          <img [src]="friend.profilePictureUrl" alt="Avatar">
+        </div>
+        <div class="friend-info">
+          <p class="profile-name"  (click)="navigateToPersonalPage(friend)">{{ friend.publicName }}</p>
+        </div>
+      </div>
     </div>
-
-
   </mat-card-actions>
+</div>
+
+
+

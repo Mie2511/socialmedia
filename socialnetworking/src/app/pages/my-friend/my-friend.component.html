@@ -1,0 +1,29 @@
+<app-sidebar></app-sidebar>
+<div id="search-user">
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Tìm kiếm bạn bè..." class="search-input">
+    <button class="search-btn">
+      <mat-icon style="color: white;">search</mat-icon>
+    </button>
+  </div>
+</div>
+<div id="container">
+  <div *ngIf="filteredFriends.length === 0" style="color: white;text-align: center; align-items: center;">Hãy kết thêm bạn đi nèo!</div>
+  <div *ngFor="let friend of filteredFriends" class="mat-card">
+    <div class="main-details">
+      <img class="main-image" [src]="friend.mainImageUrl || 'default-main-image-url.jpg'" alt="Main Image" (click)="onMainImageClick()">
+
+      <div class="profile-picture" (click)="navigateToPersonalPage(friend)">
+        <img [src]="friend.profilePictureUrl" alt="Profile Picture">
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-name" (click)="navigateToPersonalPage(friend)">{{ friend.publicName }}</div>
+      <div class="profile-handle">{{ friend.description }}</div>
+    </div>
+    <hr>
+    <div class="but-nav-per">
+      <button class="nav-per" (click)="navigateToPersonalPage(friend)">Xem trang cá nhân</button>
+    </div>
+  </div>
+</div>

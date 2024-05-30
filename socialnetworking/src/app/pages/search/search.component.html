@@ -1,0 +1,40 @@
+<div id="container">
+  <app-sidebar></app-sidebar>
+  <div id="search-user">
+    <div class="search-box">
+      <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Tìm kiếm bạn bè..." class="search-input">
+      <button class="search-btn">
+        <mat-icon style="color: white;">search</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div id="list-user">
+    <div *ngIf="filteredUsers.length > 0; else noUsers">
+      <div *ngFor="let user of filteredUsers" class="profile">
+        <div class="main-details">
+          <div class="profile-picture" (click)="navigateToPersonalPage(user)">
+            <img [src]="user.profilePictureUrl" alt="Profile Picture">
+          </div>
+          <div class="profile-info">
+            <div class="profile-name" (click)="navigateToPersonalPage(user)">{{ user.publicName }}</div>
+            <div class="profile-handle">{{ user.description }}</div>
+          </div>
+        </div>
+        <div class="follow-button" *ngIf="user.userId !== currentUserId">
+          <ng-container [ngSwitch]="user.friendRequestStatus">
+            <button *ngSwitchCase="'none'" (click)="toggleFriendRequest(user)">Kết bạn</button>
+            <button *ngSwitchCase="'sent'" class="friend-request-sent" (click)="toggleFriendRequest(user)">Đã gửi lời mời kết bạn</button>
+            <div *ngSwitchCase="'received'" class="double-but">
+              <button class="accept-button" (click)="acceptFriendRequest(user)">Đồng ý kết bạn</button>
+              <button class="decline-button" (click)="declineFriendRequest(user)">Từ chối</button>
+            </div>
+            <button *ngSwitchCase="'friends'" class="friends-button" (click)="openRemoveFriendDialog(user)">Bạn bè</button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <ng-template #noUsers>
+      <div style="color: white;">Không tìm thấy bạn bè</div>
+    </ng-template>
+  </div>
+</div>

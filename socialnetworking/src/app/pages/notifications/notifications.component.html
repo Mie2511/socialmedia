@@ -1,0 +1,12 @@
+<div id="container">
+  <app-sidebar></app-sidebar>
+  <mat-list>
+    <ng-container *ngFor="let notification of notifications">
+      <mat-list-item>{{ notification.message }} - {{ notification.timestamp | date:'short' }}</mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+  <ng-container *ngIf="notifications.length === 0">
+    <div>Không có thông báo</div>
+  </ng-container>
+</div>

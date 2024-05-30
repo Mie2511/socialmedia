@@ -1,0 +1,56 @@
+<div id="container">
+  <app-sidebar></app-sidebar>
+
+  <div *ngIf="notifications.length > 0">
+    <div *ngFor="let notification of notifications" class="notification">
+      {{ notification }}
+    </div>
+  </div>
+
+  <div id="list-user">
+    <p>Lời mời kết bạn</p>
+    <div *ngIf="receivedRequests.length > 0; else noReceivedRequests">
+      <div *ngFor="let user of receivedRequests" class="profile">
+        <div class="main-details">
+          <div class="profile-picture" (click)="navigateToPersonalPage(user)">
+            <img [src]="user.profilePictureUrl" alt="Profile Picture">
+          </div>
+          <div class="profile-info">
+            <div class="profile-name" (click)="navigateToPersonalPage(user)">{{ user.publicName }}</div>
+            <div class="profile-handle">{{ user.description }}</div>
+          </div>
+        </div>
+        <div class="follow-button">
+          <button class="accept-button" (click)="acceptFriendRequest(user)">Đồng ý kết bạn</button>
+          <button class="decline-button" (click)="declineFriendRequest(user)">Từ chối</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #noReceivedRequests>
+      <div style="color: white;">Không có lời mời kết bạn nhận được</div>
+    </ng-template>
+
+    <hr style="color: azure; border: 2px solid white; margin: 3cm 0;;">
+
+    <p>Đợi chờ là hạnh phúc</p>
+    <div *ngIf="sentRequests.length > 0; else noSentRequests">
+      <div *ngFor="let user of sentRequests" class="profile">
+        <div class="main-details">
+          <div class="profile-picture" (click)="navigateToPersonalPage(user)">
+            <img [src]="user.profilePictureUrl" alt="Profile Picture">
+          </div>
+          <div class="profile-info">
+            <div class="profile-name" (click)="navigateToPersonalPage(user)">{{ user.publicName }}</div>
+            <div class="profile-handle">{{ user.description }}</div>
+          </div>
+        </div>
+        <div class="follow-button">
+          <button class="cancel-button" (click)="cancelSentRequest(user)">Hủy lời mời kết bạn</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #noSentRequests>
+      <div style="color: white;">Không có lời mời kết bạn đã gửi</div>
+    </ng-template>
+  </div>
+</div>

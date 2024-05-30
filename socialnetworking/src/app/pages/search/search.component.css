@@ -1,0 +1,117 @@
+#container{
+  margin: 20px auto;
+  padding: 10px;
+  margin-top: 3cm;
+  width: 60%;
+}
+.profile {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.profile img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+.profile-name {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+}
+.profile-info{
+  color: #ffffff;
+  font-weight: normal;
+}
+.main-details{
+  display: flex;
+  align-items: center;
+}
+.follow-button {
+  margin-top: 5px;
+  margin-left: auto;
+}
+.follow-button button {
+  padding: 8px 16px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.follow-button button:hover {
+  background-color: #000000a0;
+  color: white;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #372d49;
+  border-radius: 100px;
+  padding: 8px 16px;
+  border: 3px solid white;
+  margin-right: 5px;
+  width: 60%;
+  position: fixed;
+  top: 11.3%;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #372d49;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+}
+
+.search-btn mat-icon {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  color: #666;
+}
+#list-user{
+  margin-top: 4%;
+  margin-left: 5%;
+}
+#search-user{
+  margin-top: -4%;
+  width: 60%;
+  /* background-color: #1D1929; */
+  height: 90px;
+  position: fixed;
+}
+.follow-button .friend-request-sent {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.follow-button .accept-button{
+  background-color: black;
+  color: white;
+  margin-right: 5px;
+}
+.follow-button .decline-button{
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+.follow-button .friends-button {
+  background-color: transparent;
+  background-image: linear-gradient(to top right, rgb(94, 255, 250), rgb(132, 0, 255));
+  color: white;
+}

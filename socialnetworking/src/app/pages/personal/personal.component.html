@@ -1,20 +1,5 @@
-
-<!--
-<div id="body">
-    <div class="container">
-        <img src="https://images.unsplash.com/photo-1533450718592-29d45635f0a9?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8anBnfGVufDB8fDB8fHww" alt="Main Image" class="main-image">
-        <div class="profile-picture">
-            <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Profile Picture">
-        </div>
-    </div>
-</div> -->
-
-
-
-
-
-<div id="body">
-  <app-nofitication></app-nofitication>
+<!-- <div id="body">
+  <app-sidebar></app-sidebar>
   <div class="container">
     <img class="main-image" [src]="mainImageSrc || 'default-main-image-url.jpg'" alt="Main Image" (click)="onMainImageClick()">
     <input type="file" id="main-image-input" (change)="onMainImageChange($event)" style="display: none;">
@@ -32,7 +17,7 @@
           <div class="profile-details">
                <div class="action-buttons">
                   <div class="folleeting-button">
-                      <div class="folleeting-text">Folleeting</div>
+                      <div class="folleeting-text">Kết bạn</div>
                   </div>
               </div>
               <div class="main-details">
@@ -42,73 +27,55 @@
                   <ng-container *ngFor="let post of userPosts">
                     <app-post [postData]="post"></app-post>
                   </ng-container>
-                  <!-- <div class="additional-info">
-                      <span>City, Country</span>
-                      <span>website.com</span>
-                      <span>Joined October 2019</span>
-                  </div>
-                  <div class="follow-info">
-                      <span><strong>398</strong> Folleeting</span>
-                      <span><strong>556</strong> Folleeters</span>
-                  </div>
-                  <div class="followed-info">Folleeted by Skeeter and 9 others you follow</div> -->
               </div>
-              <!-- <div class="nav-tabs">
-                  <div class="tab active">Fweets</div>
-                  <div class="tab">Fweets & sheets</div>
-                  <div class="tab">Media</div>
-              </div> -->
           </div>
       </div>
-          <!--<div class="tweet">
-              <div class="tweet-profile-picture">
-                  <img src="./assets/mask-group-2.svg" alt="Tweet Profile Picture">
-              </div>
-              <div class="tweet-content">
-                  <div class="tweet-header">
-                      <div class="tweet-name">Profile Name</div>
-                      <div class="tweet-handle">@profilename • 18h</div>
-                  </div>
-                  <div class="tweet-body">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's: <a
-                          href="http://bit.ly/2kvf6yj">bit.ly/2kvf6yj</a>
-                  </div>
-              </div>
-          </div>
-          <div class="tweet">
-              <div class="tweet-profile-picture">
-                  <img src="./assets/mask-group-3.svg" alt="Tweet Profile Picture">
-              </div>
-              <div class="tweet-content">
-                  <div class="tweet-header">
-                      <div class="tweet-name">Profile Name</div>
-                      <div class="tweet-handle">@profilename • Jan. 20, 2020</div>
-                  </div>
-                  <div class="tweet-body">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's: <a
-                          href="http://bit.ly/2kvf6yj">bit.ly/2kvf6yj</a>
-                  </div>
-                  <div class="tweet-media">
-                      <img src="./assets/rectangle-141.svg" alt="Tweet Media">
-                  </div>
-              </div>
-          </div>
-          <div class="tweet">
-              <div class="tweet-profile-picture">
-                  <img src="./assets/mask-group-4.svg" alt="Tweet Profile Picture">
-              </div>
-              <div class="tweet-content">
-                  <div class="tweet-header">
-                      <div class="tweet-name">Profile Name</div>
-                      <div class="tweet-handle">@profilename • Jan. 15, 2020</div>
-                  </div>
-                  <div class="tweet-body">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's: <a
-                          href="http://bit.ly/2kvf6yj">bit.ly/2kvf6yj</a>
-                  </div>
-              </div>
-          </div>
-      </div> -->
+      <button (click)="onCreatePostClick()" mat-fab  id="post-button">
+        <mat-icon class="button-icon">add</mat-icon>
+        <span class="button-text">Đăng bài</span>
+      </button>
   </div>
 
+ -->
 
+
+ <div id="body">
+  <app-sidebar></app-sidebar>
+  <div class="container">
+    <img class="main-image" [src]="mainImageSrc || 'default-main-image-url.jpg'" alt="Main Image" (click)="onMainImageClick()">
+    <input type="file" id="main-image-input" (change)="onMainImageChange($event)" style="display: none;">
+    <div class="profile-picture">
+      <img [src]="profilePictureSrc || 'default-profile-picture-url.jpg'" alt="Profile Picture" (click)="onProfilePictureClick()">
+      <input type="file" id="profile-picture-input" (change)="onProfilePictureChange($event)" style="display: none;">
+    </div>
+  </div>
+
+  <div class="profile-page">
+    <div class="profile-details">
+      <div class="action-buttons" *ngIf="currentUserId && currentUserId !== userId">
+        <ng-container [ngSwitch]="friendRequestStatus">
+          <button *ngSwitchCase="'none'" (click)="toggleFriendRequest()">Kết bạn</button>
+          <button *ngSwitchCase="'sent'" class="friend-request-sent" (click)="toggleFriendRequest()">Đã gửi lời mời kết bạn</button>
+          <div *ngSwitchCase="'received'">
+            <button class="accept-button" (click)="acceptFriendRequest()">Đồng ý kết bạn</button>
+            <button class="decline-button" (click)="declineFriendRequest()">Từ chối</button>
+          </div>
+          <button *ngSwitchCase="'friends'" class="friends-button" (click)="openRemoveFriendDialog()">Bạn bè</button>
+        </ng-container>
+      </div>
+      <div class="main-details">
+        <div class="profile-name">{{ profileName }}</div>
+        <div class="profile-handle">{{ profileHandle }}</div>
+
+        <ng-container *ngFor="let post of userPosts">
+          <app-post [postData]="post"></app-post>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="onCreatePostClick()" mat-fab id="post-button">
+    <mat-icon class="button-icon">add</mat-icon>
+    <span class="button-text">Đăng bài</span>
+  </button>
+</div>

@@ -2,10 +2,12 @@
   margin-left: .5em;
   cursor: pointer;
 }
+
 .mat-card-actions, .mat-card-subtitle, .mat-card-content {
   font-size: 20px;
 }
-.mat-card{
+
+.mat-card {
   background-color: black;
   color: white;
   margin: 10px 0;
@@ -15,19 +17,18 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-.mat-card-subtitle{
-  color: white;
 
+.mat-card-subtitle {
+  color: white;
 }
+
 .liked {
   color: rgb(255, 127, 127);
 }
 
-.mat-card .img-content{
+.mat-card .img-content {
   margin-top: 0.2cm;
 }
-
-
 
 .profile-picture {
   width: 50px;
@@ -36,4 +37,13 @@
   margin-right: 0px;
 }
 
+/* Add these styles */
+.mat-card-header {
+  display: flex;
+  align-items: center;
+}
 
+.menu-icon {
+  margin-left: auto;
+  margin-bottom: auto;
+}

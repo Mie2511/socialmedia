@@ -12,18 +12,28 @@ import { HomeComponent } from './pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
+
 import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 import { ProfileComponent } from './tools/profile/profile.component';
-
-import { MatDialogModule } from '@angular/material/dialog'
-import { MatIconModule } from '@angular/material/icon';
 import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
 import { ReplyComponent } from './tools/reply/reply.component';
-import { NofiticationComponent } from './tools/nofitication/nofitication.component';
-import { PersonalComponent } from './pages/personal/personal.component'
+import { PersonalComponent } from './pages/personal/personal.component';
+import { SearchComponent } from './pages/search/search.component';
+import { FormsModule } from '@angular/forms';
+import { AddFriendsComponent } from './pages/add-friends/add-friends.component';
+import { ConfirmDialogComponent } from './tools/confirm-dialog/confirm-dialog.component';
+import { MyFriendComponent } from './pages/my-friend/my-friend.component';
+import { EditPostComponent } from './tools/edit-post/edit-post.component';
+import { SidebarComponent } from './tools/sidebar/sidebar.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
 
 
 
@@ -38,8 +48,15 @@ import { PersonalComponent } from './pages/personal/personal.component'
     CreatePostComponent,
     PostComponent,
     ReplyComponent,
-    NofiticationComponent,
-    PersonalComponent
+    PersonalComponent,
+    SearchComponent,
+    AddFriendsComponent,
+    ConfirmDialogComponent,
+    MyFriendComponent,
+    EditPostComponent,
+    SidebarComponent,
+    NotificationsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -49,7 +66,11 @@ import { PersonalComponent } from './pages/personal/personal.component'
     MatBottomSheetModule,
     MatCardModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatListModule
 
   ],
   providers: [],

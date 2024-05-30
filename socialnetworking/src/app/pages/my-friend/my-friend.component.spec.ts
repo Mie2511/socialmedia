@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthenticatorComponent } from './authenticator.component';
+import { MyFriendComponent } from './my-friend.component';
 
-describe('AuthenticatorComponent', () => {
-  let component: AuthenticatorComponent;
-  let fixture: ComponentFixture<AuthenticatorComponent>;
+describe('MyFriendComponent', () => {
+  let component: MyFriendComponent;
+  let fixture: ComponentFixture<MyFriendComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthenticatorComponent ]
+      declarations: [ MyFriendComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthenticatorComponent);
+    fixture = TestBed.createComponent(MyFriendComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,4 +23,3 @@ describe('AuthenticatorComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

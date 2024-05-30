@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthenticatorComponent } from './authenticator.component';
+import { NotificationsComponent } from './notifications.component';
 
-describe('AuthenticatorComponent', () => {
-  let component: AuthenticatorComponent;
-  let fixture: ComponentFixture<AuthenticatorComponent>;
+describe('NotificationsComponent', () => {
+  let component: NotificationsComponent;
+  let fixture: ComponentFixture<NotificationsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthenticatorComponent ]
+      declarations: [ NotificationsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthenticatorComponent);
+    fixture = TestBed.createComponent(NotificationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,4 +23,3 @@ describe('AuthenticatorComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

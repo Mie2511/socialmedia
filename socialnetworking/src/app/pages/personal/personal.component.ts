@@ -4,7 +4,11 @@ import { FirebaseTSStorage } from 'firebasets/firebasetsStorage/firebaseTSStorag
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { Location } from '@angular/common';
 import { PostData } from '../post-feed/post-feed.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CreatePostComponent } from 'src/app/tools/create-post/create-post.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/tools/confirm-dialog/confirm-dialog.component';
+
 
 @Component({
   selector: 'app-personal',
@@ -17,6 +21,7 @@ export class PersonalComponent implements OnInit {
 
   profileName: string = 'Profile Name';
   profileHandle: string = '@Name';
+  friendRequestStatus: 'none' | 'sent' | 'received' | 'friends' = 'none';
 
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
@@ -24,15 +29,18 @@ export class PersonalComponent implements OnInit {
 
   userPosts: PostData[] = [];
   userId: string;
+  currentUserId: string | null = null;
 
-  constructor(private location: Location, private route: ActivatedRoute) { }
+  constructor(private location: Location, private route: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
+    this.currentUserId = this.auth.getAuth().currentUser?.uid;
     this.route.params.subscribe(params => {
       this.userId = params['userId'];
       this.loadImages();
       this.loadUserInfo();
       this.loadUserPosts();
+      this.checkFriendRequestStatus();
     });
   }
 
@@ -55,7 +63,7 @@ export class PersonalComponent implements OnInit {
 
   loadUserInfo() {
     this.firestore.getDocument({
-      path: ["Users", this.userId], // Sử dụng userId thay vì currentUser.uid
+      path: ["Users", this.userId],
       onComplete: result => {
         const userData = result.data();
         if (userData) {
@@ -97,6 +105,9 @@ export class PersonalComponent implements OnInit {
   onProfilePictureClick() {
     const profilePictureInput = <HTMLInputElement>document.getElementById('profile-picture-input');
     profilePictureInput.click();
+  }
+  onCreatePostClick(){
+    this.dialog.open(CreatePostComponent);
   }
 
   onMainImageChange(event: any) {
@@ -151,12 +162,136 @@ export class PersonalComponent implements OnInit {
         [imageField]: imageUrl
       },
       onComplete: () => {
-        console.log(`${imageField} đã đổi.`);
+        console.log(`Đổi ${imageField} thành công.`);
         this.loadImages();
       },
       onFail: (err) => {
         console.error(err);
       }
+    });
+  }
+  checkFriendRequestStatus() {
+    if (!this.currentUserId || this.currentUserId === this.userId) {
+      return;
+    }
+
+    this.firestore.getDocument({
+      path: ['Users', this.currentUserId, 'friendRequest', this.userId],
+      onComplete: result => {
+        if (result.exists) {
+          this.friendRequestStatus = 'sent';
+        } else {
+          this.firestore.getDocument({
+            path: ['Users', this.userId, 'friendRequest', this.currentUserId],
+            onComplete: result => {
+              if (result.exists) {
+                this.friendRequestStatus = 'received';
+              } else {
+                this.firestore.getDocument({
+                  path: ['Users', this.currentUserId, 'friend', this.userId],
+                  onComplete: result => {
+                    if (result.exists) {
+                      this.friendRequestStatus = 'friends';
+                    } else {
+                      this.friendRequestStatus = 'none';
+                    }
+                  }
+                });
+              }
+            }
+          });
+        }
+      }
+    });
+  }
+
+
+  toggleFriendRequest(): void {
+    if (!this.currentUserId) {
+      return;
+    }
+
+    if (this.friendRequestStatus === 'none') {
+      this.friendRequestStatus = 'sent';
+      this.firestore.create({
+        path: ['Users', this.currentUserId, 'friendRequest', this.userId],
+        data: { status: 'sent' }
+      });
+      this.firestore.create({
+        path: ['Users', this.userId, 'friendRequest', this.currentUserId],
+        data: { status: 'received' }
+      });
+    } else if (this.friendRequestStatus === 'sent') {
+      this.friendRequestStatus = 'none';
+      this.firestore.delete({
+        path: ['Users', this.currentUserId, 'friendRequest', this.userId]
+      });
+      this.firestore.delete({
+        path: ['Users', this.userId, 'friendRequest', this.currentUserId]
+      });
+    }
+  }
+
+  acceptFriendRequest(): void {
+    if (!this.currentUserId) {
+      return;
+    }
+
+    this.friendRequestStatus = 'friends';
+    this.firestore.create({
+      path: ['Users', this.currentUserId, 'friend', this.userId],
+      data: { status: 'friends' }
+    });
+    this.firestore.create({
+      path: ['Users', this.userId, 'friend', this.currentUserId],
+      data: { status: 'friends' }
+    });
+    this.firestore.delete({
+      path: ['Users', this.currentUserId, 'friendRequest', this.userId]
+    });
+    this.firestore.delete({
+      path: ['Users', this.userId, 'friendRequest', this.currentUserId]
+    });
+  }
+
+  declineFriendRequest(): void {
+    if (!this.currentUserId) {
+      return;
+    }
+
+    this.friendRequestStatus = 'none';
+    this.firestore.delete({
+      path: ['Users', this.currentUserId, 'friendRequest', this.userId]
+    });
+    this.firestore.delete({
+      path: ['Users', this.userId, 'friendRequest', this.currentUserId]
+    });
+  }
+
+  openRemoveFriendDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: { message: 'Bạn muốn xóa bạn bè?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm') {
+        this.removeFriend();
+      }
+    });
+  }
+
+  removeFriend(): void {
+    if (!this.currentUserId) {
+      return;
+    }
+
+    this.friendRequestStatus = 'none';
+    this.firestore.delete({
+      path: ['Users', this.currentUserId, 'friend', this.userId]
+    });
+    this.firestore.delete({
+      path: ['Users', this.userId, 'friend', this.currentUserId]
     });
   }
 }

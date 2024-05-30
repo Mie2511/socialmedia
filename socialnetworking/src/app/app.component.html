@@ -1,35 +1,56 @@
-
-<div id="nav-bar">
+ <div id="nav-bar">
   <div id="nav-bar-content">
-    <div id="nav-bar-left">
+    <div id="nav-bar-left" *ngIf="!showNavigation">
       <div style="font-size: 1.5em;" class="nav-bar-items">
-        <!-- <a href="./post-feed.component.html"> <img src="assets/logo-white.png"></a> -->
-        <a *ngIf="showNavigation" href="./personal.component.html"> <img src="assets/logo-white.png" class="img1"></a>
+        <!-- <a *ngIf="showNavigation" href="./personal.component.html"> <img src="assets/logo-white.png" class="img1"></a> -->
         <a *ngIf="!showNavigation" href="./post-feed.component.html"> <img src="assets/logo-white.png" class="img2"></a>
       </div>
     </div>
 
-    <div id="nav-bar-center" *ngIf="showNavigation" class="navigation">
+    <div id="nav-bar-center" *ngIf=" showNavBarCenter" class="navigation" style="padding-right: 50px; padding-left: 10px;">
       <div class="back-arrow"  (click)="goBack()" style="cursor: pointer;">←</div>
       <div class="profile-summary">
-        <div class="profile-name">{{ showNavigationName }}</div>
-        <div class="fleet-count">20 Fleets</div>
+        <div class="profile-name"><mat-icon>filter_vintage</mat-icon></div>
+        <div class="fleet-count">Quay lại</div>
       </div>
     </div>
+    <div *ngIf="showIcon" class="navbar-search">
+      <div class="icon-box" >
+          <mat-icon style="color: rgb(255, 255, 255); "  (click)="reloadPage()">home</mat-icon>
+      </div>
+    </div>
+    <div *ngIf="showIcon " class="navbar-search">
+      <div class="icon-box">
+          <mat-icon style="color: rgb(255, 255, 255);" (click)="onIconClick()">person_search</mat-icon>
+      </div>
+    </div>
+    <div *ngIf="showIcon " class="navbar-search">
+      <div class="icon-box">
+          <mat-icon style="color: rgb(255, 255, 255);" (click)="onIconAddClick()">person_add</mat-icon>
+      </div>
+    </div>
+    <div *ngIf="showIcon " class="navbar-search">
+      <div class="icon-box">
+          <mat-icon style="color: rgb(255, 255, 255);" (click)="onIconFriendClick()">supervisor_account</mat-icon>
+      </div>
+    </div>
+    <div *ngIf="showIcon " class="navbar-search">
+      <div class="icon-box">
+          <mat-icon style="color: rgb(255, 255, 255);" (click)="onNotiClick()">notifications</mat-icon>
+      </div>
+    </div>
+
 
     <div id="nav-bar-right">
       <div *ngIf="!loggedIn()" (click)="onLoginClick()" class="nav-bar-items">Đăng Nhập</div>
       <div *ngIf="loggedIn() && userHasProfile" (click)="navigateToProfile()" class="nav-bar-items">
-        Hello, <u> {{getUserName()}} </u>
+        <u> {{getUserName()}} </u>
       </div>
-      <div *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items">Đăng xuất</div>
+      <div *ngIf=" loggedIn() " (click)="onLogoutClick()" class="nav-bar-items"><mat-icon>logout</mat-icon></div>
     </div>
   </div>
 </div>
 
 <router-outlet></router-outlet>
 
-
-  <app-profile [show]="loggedIn() && !userHasProfile"></app-profile>
-
-
+<app-profile [show]="loggedIn() && !userHasProfile"></app-profile>

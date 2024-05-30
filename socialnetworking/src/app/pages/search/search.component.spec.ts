@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthenticatorComponent } from './authenticator.component';
+import { SearchComponent } from './search.component';
 
-describe('AuthenticatorComponent', () => {
-  let component: AuthenticatorComponent;
-  let fixture: ComponentFixture<AuthenticatorComponent>;
+describe('SearchComponent', () => {
+  let component: SearchComponent;
+  let fixture: ComponentFixture<SearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthenticatorComponent ]
+      declarations: [ SearchComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthenticatorComponent);
+    fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,4 +23,3 @@ describe('AuthenticatorComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

@@ -67,6 +67,9 @@ export class AuthenticatorComponent implements OnInit {
              password: password,
              onComplete: (uc) => {
               this.bottomSheetRef.dismiss();
+              setTimeout(() => {
+                window.location.reload();
+              }, 1000);
              },
              onFail: (err) => {
                alert("Failed to create the account.");

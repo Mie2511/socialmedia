@@ -1,38 +1,3 @@
-/* #body {
-  margin-top: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #1D1929;
-}
-.container {
-  position: relative;
-  width: 853px;
-  height: 451.39px;
-}
-.main-image {
-  width: 100%;
-  height: 90%;
-  border-radius: 20px;
-  object-fit: cover;
-}
-.profile-picture {
-  position: absolute;
-  bottom: -5%;
-  left: 5%;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 5px solid white;
-  overflow: hidden;
-}
-.profile-picture img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
 #body {
   font-family: 'Quicksand', sans-serif;
   background-color: #1D1929;
@@ -46,10 +11,9 @@
 }
 
 
-
 .container {
   position: relative;
-  width: 853px;
+  width: 55%;
   height: 451.39px;
   margin-bottom: 2em; /* Thêm khoảng cách giữa các phần */
 }
@@ -63,10 +27,10 @@
 
 .profile-picture {
   position: absolute;
-  bottom: -5%;
+  bottom: -4%;
   left: 5%;
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   border: 3px solid transparent;
   background: linear-gradient(to right bottom, #ffffff, #000000) border-box;
@@ -98,7 +62,7 @@
   margin-top: -60px;
   border: 5px solid #ffffff;
   background-color: #c4c4c4;
-  
+
 }
 
 .action-buttons {
@@ -112,140 +76,106 @@
   cursor: pointer;
 }
 
-.folleeting-button {
-  background-color: #c56d48;
-  color: #f2f2f2;
+.action-buttons button{
+  color: #000000;
   border-radius: 100px;
   padding: 10px 20px;
   cursor: pointer;
-  display: flex;
   align-items: center;
-}
-
-.folleeting-text {
   font-size: 18px;
   font-weight: 400;
+  font-weight: bolder;
+}
+
+
+.action-buttons button:hover {
+  background-color: #000000a0;
+  color: white;
+}
+.action-buttons .friend-request-sent {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.action-buttons .accept-button{
+  background-color: rgb(77, 75, 72);
+  color: white;
+  margin-right: 5px;
+}
+.action-buttons .decline-button{
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+.action-buttons .friends-button {
+  background-color: transparent;
+  background-image: linear-gradient(to top right, rgb(94, 255, 250), rgb(132, 0, 255));
+  color: white;
 }
 
 .main-details .profile-name {
   font-size: 20px;
   font-weight: 700;
-  margin: 20px 0 5px;
+  margin: 0px 3% 5px;
 }
+
 
 .profile-handle {
   font-size: 16px;
   color: #8a98a4;
-  margin-bottom: 20px;
+  margin-bottom: 2cm;
+  margin-left: 3%;
 }
 
-.bio {
-  font-size: 16px;
-  color: #394349;
-  line-height: 1.4;
-}
 
-.additional-info {
+#post-button {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  background-image: linear-gradient(to right bottom, #6a5af9, #f62682);
+  transition: width 0.5s, padding 0.5s, border-radius 0.5s;
+  width: 56px;
+  height: 56px;
   display: flex;
-  flex-wrap: wrap;
-  font-size: 16px;
-  color: #8a98a4;
-  margin: 10px 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 50%;
 }
 
-.additional-info span {
-  margin-right: 20px;
+#post-button:hover {
+  width: 145px;
+  height: 56px;
+  color: white;
+  background-image: linear-gradient(to right bottom, #f62682, #e5f626);
+  justify-content: flex-start;
+  border-radius: 28px;
 }
 
-.follow-info {
-  display: flex;
-  font-size: 16px;
-  color: #8a98a4;
-  margin-top: 10px;
+#post-button:hover .button-icon {
+  animation: rotate-icon 1s ease-in-out;
+  margin-right: 2px; /* Space between icon and text */
 }
 
-.follow-info span {
-  margin-right: 20px;
+.button-icon{
+  margin-left: 36%;
+  margin-right: 0px;
+}
+@keyframes rotate-icon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.follow-info strong {
-  color: #394349;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+.button-text {
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
-.followed-info {
-  font-size: 13px;
-  color: #8a98a4;
-margin-top: 5px;
+#post-button:hover .button-text {
+  opacity: 1; /* Show text on hover */
 }
 
-.nav-tabs {
-display: flex;
-border-bottom: 1px solid #abb9ba;
-margin-top: 20px;
-}
 
-.nav-tabs .tab {
-font-size: 15px;
-font-weight: 400;
-padding: 10px 15px;
-cursor: pointer;
-color: #8a98a4;
-}
-
-.nav-tabs .tab.active {
-color: #c56d48;
-border-bottom: 2px solid #c56d48;
-}
-
-.tweet {
-display: flex;
-padding: 20px;
-border-bottom: 1px solid #abb9ba;
-}
-
-.tweet .tweet-profile-picture img {
-width: 48px;
-height: 48px;
-border-radius: 50%;
-margin-right: 15px;
-}
-
-.tweet .tweet-content {
-flex: 1;
-}
-
-.tweet .tweet-header {
-display: flex;
-align-items: center;
-}
-
-.tweet .tweet-name {
-font-weight: 700;
-font-size: 18px;
-}
-
-.tweet .tweet-handle {
-font-size: 18px;
-margin-left: 5px;
-}
-
-.tweet .tweet-body {
-font-size: 16px;
-margin-top: 5px;
-}
-
-.tweet .tweet-body a {
-color: #c56d48;
-}
-
-.tweet .tweet-media {
-margin-top: 10px;
-}
-
-.tweet .tweet-media img {
-max-width: 100%;
-border-radius: 14px;
-opacity: 0.1;
-}

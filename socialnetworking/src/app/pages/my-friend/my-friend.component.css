@@ -1,0 +1,122 @@
+#container {
+  margin-top: 5%;
+  padding: 7% 24px 24px 24px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+#search-user {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding-top: 2%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #372d49;
+  border-radius: 100px;
+  padding: 8px 16px;
+  border: 3px solid white;
+  width: 60%;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #372d49;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+}
+
+.search-btn mat-icon {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  color: #666;
+}
+
+
+.mat-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-details {
+  position: relative;
+}
+
+.main-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.profile-picture {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 25%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#container .mat-card{
+  background-color: transparent;
+  background-image: linear-gradient(to top right, rgb(137, 57, 157), rgb(112, 112, 222));
+}
+.profile-name{
+  font-weight: bolder;
+  color: white;
+}
+.profile-handle{
+  color: white;
+}
+.but-nav-per{
+  display: flex;
+  justify-content: center;
+}
+.but-nav-per button {
+  padding: 8px 60px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.but-nav-per button:hover {
+  background-color: #000000a0;
+  color: white;
+}
