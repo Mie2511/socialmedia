@@ -32,15 +32,15 @@ import { MyFriendComponent } from './pages/my-friend/my-friend.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 
 const routes: Routes = [
-  //{ path: "", component: HomeComponent },
-  //{ path: "emailVerification", component: EmailVerificationComponent },
+  { path: "", component: HomeComponent },
+  { path: "emailVerification", component: EmailVerificationComponent },
   { path: "postfeed", component: PostFeedComponent },
   { path: "personal/:userId", component: PersonalComponent },
   { path: "search", component: SearchComponent },
   { path: "add-friends", component: AddFriendsComponent },
   { path: "my-friend", component: MyFriendComponent },
   { path: "noti", component: NotificationsComponent },
-  //{ path: "**", component: HomeComponent },
+  { path: "**", component: HomeComponent },
 ];
 
 @NgModule({
