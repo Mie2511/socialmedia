@@ -32,7 +32,7 @@ import { MyFriendComponent } from './pages/my-friend/my-friend.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent },
   { path: "emailVerification", component: EmailVerificationComponent },
   { path: "postfeed", component: PostFeedComponent },
   { path: "personal/:userId", component: PersonalComponent },

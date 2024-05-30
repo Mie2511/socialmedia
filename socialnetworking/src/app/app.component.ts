@@ -58,7 +58,7 @@ export class AppComponent {
         const isAddFrPage = event.urlAfterRedirects.includes('/add-friends');
         const isMyFriend = event.urlAfterRedirects.includes('/my-friend');
 
-        this.showNavigation = isPersonalPage || isSearchPage || isAddFrPage || isMyFriend;
+        this.showNavigation = isPersonalPage || isSearchPage || isAddFrPage || isMyFriend ;
         this.showIcon = !isHomePage && !isAuthenticatorPage;
         this.showNavBarCenter = isPersonalPage || isSearchPage || isAddFrPage || isMyFriend;
         this.adjustLogoSize();
