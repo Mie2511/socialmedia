@@ -8,7 +8,7 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  notifications: { message: string, timestamp: Date }[] = [];
+  notifications: { message: string, timestamp: any }[] = [];
   firestore = new FirebaseTSFirestore();
   auth = new FirebaseTSAuth();
   currentUserId: string | null = null;
@@ -27,7 +27,14 @@ export class NotificationsComponent implements OnInit {
       path: ['Users', this.currentUserId, 'notifications'],
       where: [],
       onComplete: result => {
-        this.notifications = result.docs.map(doc => doc.data() as { message: string, timestamp: Date });
+        this.notifications = result.docs.map(doc => {
+          let data = doc.data() as { message: string, timestamp: any };
+          return {
+            message: data.message,
+            timestamp: data.timestamp?.toDate() || new Date()
+          };
+        });
+        this.notifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
       }
     });
   }

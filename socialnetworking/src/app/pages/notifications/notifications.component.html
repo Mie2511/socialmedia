@@ -2,7 +2,7 @@
   <app-sidebar></app-sidebar>
   <mat-list>
     <ng-container *ngFor="let notification of notifications">
-      <mat-list-item>{{ notification.message }} - {{ notification.timestamp | date:'short' }}</mat-list-item>
+      <mat-list-item [innerHTML]="notification.message"></mat-list-item>
       <mat-divider></mat-divider>
     </ng-container>
   </mat-list>
