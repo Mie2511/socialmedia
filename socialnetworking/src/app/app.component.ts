@@ -57,10 +57,11 @@ export class AppComponent {
         const isSearchPage = event.urlAfterRedirects.includes('/search');
         const isAddFrPage = event.urlAfterRedirects.includes('/add-friends');
         const isMyFriend = event.urlAfterRedirects.includes('/my-friend');
+        const isNoti = event.urlAfterRedirects.includes('/noti')
 
-        this.showNavigation = isPersonalPage || isSearchPage || isAddFrPage || isMyFriend ;
+        this.showNavigation = isPersonalPage || isSearchPage || isAddFrPage || isMyFriend || isNoti;
         this.showIcon = !isHomePage && !isAuthenticatorPage;
-        this.showNavBarCenter = isPersonalPage || isSearchPage || isAddFrPage || isMyFriend;
+        this.showNavBarCenter = isPersonalPage || isSearchPage || isAddFrPage || isMyFriend || isNoti;
         this.adjustLogoSize();
       }
     });

@@ -179,3 +179,38 @@
 }
 
 
+@media (max-width: 480px) {
+  #body app-sidebar{
+    display: none;
+  }
+  #body{
+    align-items: flex-end;
+  }
+  .container{
+    width: 80%;
+    height: 5cm;
+    margin-right: 0.2cm;
+  }
+  .profile-picture{
+    position: absolute;
+    bottom: -6%;
+    left: 9%;
+    width: 76px;
+    height: 76px;
+  }
+  .profile-details{
+    padding: 10px;
+  }
+ .profile-name{
+    font-size: 10px;
+  }
+  .profile-handle{
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) {
+
+}
+ @media (min-width: 769px) and (max-width: 1300px) {
+
+}

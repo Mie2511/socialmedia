@@ -77,3 +77,16 @@
   background-clip: text;
   color: transparent;
 }
+@media (max-width: 480px) {
+  #container app-sidebar{
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  #container app-sidebar{
+    display: none;
+  }
+}
+ @media (min-width: 769px) and (max-width: 1300px) {
+
+}

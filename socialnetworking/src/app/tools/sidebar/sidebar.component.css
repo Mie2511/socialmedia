@@ -49,3 +49,36 @@
 .friend{
   display: flex;
 }
+@media (max-width: 480px) {
+  #post-feed-side-bar span {
+    display: none;
+  }
+  #post-feed-side-bar {
+    right: 2.7%;
+    color: white;
+    width: auto;
+    text-align: center;
+    font-size: small;
+  }
+  .friend-avatar img{
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 768px) {
+  #post-feed-side-bar span {
+    display: none;
+  }
+  #post-feed-side-bar {
+    right: 2.7%;
+    color: white;
+    width: auto;
+    text-align: center;
+    font-size: small;
+  }
+}
+ @media (min-width: 769px) and (max-width: 1300px) {
+  #post-feed-side-bar{
+    width: 25%;
+  }
+}

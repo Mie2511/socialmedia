@@ -115,3 +115,49 @@
   background-image: linear-gradient(to top right, rgb(94, 255, 250), rgb(132, 0, 255));
   color: white;
 }
+@media (max-width: 480px) {
+  .search-box{
+    top: 5px;
+  }
+  #container app-sidebar {
+    display: none;
+  }
+  #container{
+    margin-top: 2cm;
+  }
+}
+@media (max-width: 768px) {
+  .search-box{
+    top: 5px;
+  }
+  #container app-sidebar {
+    display: none;
+  }
+  #container{
+    margin-top: 2cm;
+  }
+}
+ @media (min-width: 769px) and (max-width: 1300px) {
+  .search-box{
+    top: 7%;
+    width: 57%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1290px) {
+  .search-box{
+    top: 14%;
+    width: 57%;
+  }
+  #container{
+    margin-top: 4cm;
+  }
+}
+@media (min-width: 1270px) and (max-width: 1290px) {
+  .search-box{
+    top: 10%;
+    width: 57%;
+  }
+  #container{
+    margin-top: 4cm;
+  }
+}

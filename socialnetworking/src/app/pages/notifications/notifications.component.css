@@ -40,3 +40,30 @@
 }
 
 
+@media (max-width: 480px) {
+  #container{
+    margin: 20px auto;
+    padding: 10px;
+    margin-top: 1cm;
+    width: 60%;
+  }
+  #container app-sidebar{
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  #container{
+    margin: 20px auto;
+    padding: 10px;
+    margin-top: 1cm;
+    width: 60%;
+  }
+}
+ @media (min-width: 769px) and (max-width: 1300px) {
+  #container{
+    margin: 20px auto;
+    padding: 10px;
+    margin-top: 1cm;
+    width: 60%;
+  }
+}
